@@ -1,9 +1,13 @@
-import { groq } from "next-sanity";
-import { client, clientPreview } from "../../lib/sanity.client";
-import BlogList from "@/components/BlogList";
+import { draftMode } from "next/headers";
+import PreviewSuspense from "@/components/PreviewSuspense";
 
-export default async function HomePage() {
-  const query = groq`
+import { groq } from "next-sanity";
+import { client } from "../../lib/sanity.client";
+import BlogList from "@/components/BlogList";
+import PreviewBlogList from "@/components/PreviewBlogList";
+// import { Suspense } from "react";
+
+const query = groq`
      *[_type == "post"] {
        ...,
        author->,
@@ -11,18 +15,30 @@ export default async function HomePage() {
      } | order(_createdAt desc)
      `;
 
+export default async function HomePage() {
+  const { isEnabled } = draftMode();
+  if (isEnabled) {
+    return (
+      <PreviewSuspense
+        fallback={
+          <div role="status">
+            <p className="text-center text-lg animate-pulse text-[#d8195e]">
+              Loading Preview Data...
+            </p>
+          </div>
+        }
+      >
+        <div>Draft mode is enabled</div>
+        <PreviewBlogList query={query} />
+      </PreviewSuspense>
+    );
+  }
   const posts = await client.fetch(query);
   console.log(posts.length);
-  const postsPreview = await clientPreview.fetch(query);
-  console.log(postsPreview.length);
-
-  // const posts = await getPosts();
-  // console.log(posts);
 
   return (
     <div>
       <BlogList posts={posts} />
-      <h1 className="text-4xl font-bold underline">Posts</h1>
     </div>
   );
 }
