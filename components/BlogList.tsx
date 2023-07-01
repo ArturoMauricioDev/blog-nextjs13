@@ -1,4 +1,5 @@
 import { urlForImage } from "@/sanity/lib/image";
+import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 type Props = {
@@ -9,7 +10,7 @@ const BlogList = ({ posts }: Props) => {
   return (
     <div>
       <hr className="border-[#d8195e] mb-10" />
-      <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24">
         {/* Posts */}
         {posts.map((post) => (
           <div key={post._id} className="group flex cursor-pointer flex-col">
@@ -44,6 +45,10 @@ const BlogList = ({ posts }: Props) => {
               <p className="underline text-lg font-bold">{post.title}</p>
               <p className="text-gray-500 line-clamp-2 ">{post.description}</p>
             </div>
+            <p className="mt-5 font-bold flex items-center group-hover:underline">
+              Read Post
+              <ArrowUpRightIcon className="ml-2 h-4 w-4" />
+            </p>
           </div>
         ))}
       </div>

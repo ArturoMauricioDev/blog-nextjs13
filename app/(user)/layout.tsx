@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={karla.className}>
+      <body className={`${karla.className} max-w-7xl mx-auto`}>
         <Header />
         <Banner />
         {children}
