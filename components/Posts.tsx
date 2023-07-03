@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { SanityDocument } from "@sanity/client";
 import Head from "next/head";
 import { client } from "@/lib/sanity.client";
 import { groq } from "next-sanity";
@@ -23,7 +22,7 @@ export default function Posts() {
       </Head>
       <main className="container mx-auto grid grid-cols-1 divide-y divide-blue-100">
         <h1 className="text-2xl p-4 font-bold">{title}</h1>
-        {posts.map((post) => (
+        {/* {posts.map((post) => (
           <Link
             key={post._id}
             href={post.slug.current}
@@ -31,7 +30,7 @@ export default function Posts() {
           >
             <h2>{post.title}</h2>
           </Link>
-        ))}
+        ))} */}
       </main>
     </>
   );
