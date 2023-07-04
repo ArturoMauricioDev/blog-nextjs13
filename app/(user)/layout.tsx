@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Karla } from "next/font/google";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Header />
         <Banner />
         {children}
+        <Footer />
       </body>
     </html>
   );

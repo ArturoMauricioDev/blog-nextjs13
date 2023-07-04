@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between space-x-2 font-bold px-10 py-5">
+    <header className="flex items-center justify-between space-x-2 font-bold px-10 py-5 border-b">
       <div className="flex items-center space-x-2">
         <Link href="/">
           <Image
@@ -17,12 +18,7 @@ const Header = () => {
         <h1 className=" text-[rgb(39,44,48)]">Arturo Mauricio Dev</h1>
       </div>
       <div>
-        <Link
-          href="/contact"
-          className="px-5 py-3 text-sm md:text-base bg-[#d8195e] text-white flex items-center rounded-full"
-        >
-          Contactame
-        </Link>
+        <Navbar />
       </div>
     </header>
   );
