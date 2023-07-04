@@ -6,6 +6,11 @@ interface Route {
 
 export const routes: Route[] = [
   {
+    to: "/",
+    path: "home",
+    name: "Home",
+  },
+  {
     to: "/post",
     path: "blog",
     name: "Blog",
