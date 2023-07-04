@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${karla.className} max-w-7xl mx-auto`}>
         <Header />
-        <Banner />
+
         {children}
         <Footer />
       </body>

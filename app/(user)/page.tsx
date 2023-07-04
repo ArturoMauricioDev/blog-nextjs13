@@ -5,14 +5,14 @@ import { groq } from "next-sanity";
 import { client } from "../../lib/sanity.client";
 import BlogList from "@/components/BlogList";
 import PreviewBlogList from "@/components/PreviewBlogList";
-// import { Suspense } from "react";
+import Banner from "@/components/Banner";
 
 const query = groq`
      *[_type == "post"] {
        ...,
        author->,
        categories[]->
-     } | order(_createdAt desc)
+     } | order(publishedAt desc)
      `;
 
 export const revalidate = 60; //revalidate this page every 60 seconds
@@ -38,8 +38,11 @@ export default async function HomePage() {
   const posts = await client.fetch(query);
 
   return (
-    <div>
-      <BlogList posts={posts} />
-    </div>
+    <>
+      <Banner />
+      <div>
+        <BlogList posts={posts} />
+      </div>
+    </>
   );
 }
