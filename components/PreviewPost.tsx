@@ -5,13 +5,13 @@ import Post from "./Post";
 
 type Props = {
   query: string;
+  slug: string;
 };
 
-export default function PreviewBlogList({ query }: Props) {
-  const posts = usePreview(null, query);
-
-  return (
-    <div>hola</div>
-    //   <Post posts={posts} />
-  );
+export default function PreviewPost({ query, slug }: Props) {
+  const queryParams = query.replace("$slug", `"${slug}"`);
+  console.log(queryParams);
+  const post = usePreview(null, queryParams);
+  console.log(post);
+  return <Post post={post} />;
 }

@@ -1,6 +1,9 @@
 import { groq } from "next-sanity";
 import { client } from "@/lib/sanity.client";
 import Post from "@/components/Post";
+import { draftMode } from "next/headers";
+import PreviewSuspense from "@/components/PreviewSuspense";
+import PreviewPost from "@/components/PreviewPost";
 
 type Props = {
   params: {
@@ -32,6 +35,24 @@ const query = groq`
     `;
 
 const PostPage = async ({ params: { slug } }: Props) => {
+  const { isEnabled } = draftMode();
+  if (isEnabled) {
+    return (
+      <PreviewSuspense
+        fallback={
+          <div role="status">
+            <p className="text-center text-lg animate-pulse text-[#d8195e]">
+              Loading Preview Data...
+            </p>
+          </div>
+        }
+      >
+        <div>Draft mode is enabled</div>
+        <PreviewPost query={query} slug={slug} />
+      </PreviewSuspense>
+    );
+  }
+
   const post: Post = await client.fetch(query, { slug });
 
   return <Post post={post} />;
