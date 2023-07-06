@@ -2,6 +2,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import RichTextComponents from "./RichTextComponents";
+import Code from "./Code";
 
 interface Props {
   post: Post;
@@ -9,8 +10,8 @@ interface Props {
 
 const Post = ({ post }: Props) => {
   return (
-    <article className="px-10 pb-28">
-      <section className="space-y-2 border border-[#d8195e] text-white">
+    <article className="   px-10 pb-28">
+      <section className="space-y-2 border border-[#d8195e]  text-white">
         <div className=" relative min-h-56 flex flex-col md:flex-row justify-between">
           <div className="absolute top-0 w-full h-full opacity-10 blur-sm p-10 ">
             <Image
@@ -20,7 +21,7 @@ const Post = ({ post }: Props) => {
               fill
             />
           </div>
-          <section className="p-5 bg-[#d8195e] w-full">
+          <section className="p-5 bg-[#d8195e] bg-opacity-90 w-full">
             <div className="flex flex-col justify-between gap-y-5 md:flex-row">
               <div>
                 <h1 className="text-4xl font-extrabold">{post.title}</h1>
@@ -62,8 +63,9 @@ const Post = ({ post }: Props) => {
           </section>
         </div>
       </section>
-
-      <PortableText value={post.body} components={RichTextComponents} />
+      <section className="flex flex-col m-auto mt-8 prose-lg md:prose-lg xl:prose-xl prose-ol:m-0 prose-li:m-0 prose-a:text-[color:var(--primary-color)] ">
+        <PortableText value={post.body} components={RichTextComponents} />
+      </section>
     </article>
   );
 };

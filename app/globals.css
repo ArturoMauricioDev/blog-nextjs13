@@ -7,3 +7,21 @@
   --primary-text-color: #272c30;
   --secondary-text-color: #86939d;
 }
+
+.token-line {
+  display: flex;
+  flex-wrap: wrap;
+}
+.token-line > span {
+  font-size: 14px;
+}
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

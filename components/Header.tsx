@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between space-x-2 font-bold px-10 py-5 border-b">
+    <header className="flex items-center justify-between flex-col md:flex-row  space-x-2 font-bold px-10 py-5 border-b mb-7">
       <div className="flex items-center space-x-2">
         <Link href="/">
           <Image
