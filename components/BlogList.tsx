@@ -18,7 +18,7 @@ const BlogList = ({ posts }: Props) => {
             <div className="group flex cursor-pointer flex-col">
               <div className="relative h-80 w-full transform-gpu drop-shadow-xl transition-transform duration-200 ease-out group-hover:scale-105">
                 <Image
-                  className="object-cover object-left lg:object-center"
+                  className="object-cover object-center"
                   src={urlFor(post.mainImage).url() || ""}
                   alt={post.author.name}
                   fill

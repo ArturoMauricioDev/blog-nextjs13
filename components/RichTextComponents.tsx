@@ -43,9 +43,17 @@ const RichTextComponents = {
         </h2>
       );
     },
-    h3: ({ children }: any) => (
-      <h3 className="text-3xl font-bold">{children}</h3>
-    ),
+    h3: ({ children }: any) => {
+      let [slug]: string = children;
+
+      slug = string_to_slug(slug);
+
+      return (
+        <h3 id={slug} className="text-3xl font-bold">
+          {children}
+        </h3>
+      );
+    },
     h4: ({ children }: any) => (
       <h4 className="text-2xl font-bold">{children}</h4>
     ),

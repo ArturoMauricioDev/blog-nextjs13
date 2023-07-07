@@ -63,7 +63,8 @@ const Post = ({ post }: Props) => {
           </section>
         </div>
       </section>
-      <section className="flex flex-col m-auto mt-8 prose-lg md:prose-lg xl:prose-xl prose-ol:m-0 prose-li:m-0 prose-a:text-[color:var(--primary-color)] ">
+
+      <section className="flex flex-col m-auto mt-8 prose-lg md:prose-lg xl:prose-xl prose-ol:m-0 prose-ol:mb-6 prose-li:m-0 prose-a:text-[color:var(--primary-color)] ">
         <PortableText value={post.body} components={RichTextComponents} />
       </section>
     </article>

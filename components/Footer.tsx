@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-between items-center  h-20 border-t px-10">
-      <div className=" font-normal  text-sm text-[color:var(--primary-text-color)]">
+    <footer className="flex justify-between items-center flex-col md:flex-row h-20 border-t px-10">
+      <div className=" font-normal  text-sm text-[color:var(--primary-text-color)]  text-center ">
         Arturo Mauricio Dev | Todos los derechos reservados ©2023
       </div>
       <div className="flex items-center gap-4 ">
