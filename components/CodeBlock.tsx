@@ -39,7 +39,7 @@ const CodeBlock = ({ data }: any) => {
       <div className="flex justify-between items-center w-full">
         <div></div>
         <div className=" items-center">
-          {filename ? <p className="">{filename}</p> : null}
+          {filename ? <p className="my-3">{filename}</p> : null}
         </div>
 
         <Button
@@ -50,13 +50,13 @@ const CodeBlock = ({ data }: any) => {
           }}
         >
           {isCopied ? (
-            <CheckIcon width={30} height={30} className=" text-green-500" />
+            <CheckIcon width={20} height={20} className=" text-green-500" />
           ) : (
-            <ClipboardDocumentListIcon width={30} height={30} />
+            <ClipboardDocumentListIcon width={20} height={20} />
           )}
         </Button>
       </div>
-      <div className=" py-4 bg-accent-solid-white dark:bg-accent-5/50 rounded-lg overflow-y-scroll scrollbar-hide w-full">
+      <div className="bg-accent-solid-white dark:bg-accent-5/50 rounded-lg overflow-y-scroll scrollbar-hide w-full">
         {/* <div className='flex w-full pr-8 justify-end absolute'>
             
             </div>  */}
@@ -71,6 +71,8 @@ const CodeBlock = ({ data }: any) => {
               style={{
                 ...style,
                 marginTop: 0,
+                marginBottom: 0,
+                overflowX: "scroll",
                 boxShadow:
                   "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
               }}

@@ -10,7 +10,6 @@
 
 .token-line {
   display: flex;
-  flex-wrap: wrap;
 }
 .token-line > span {
   font-size: 14px;
