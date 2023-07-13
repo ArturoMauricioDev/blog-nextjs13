@@ -3,16 +3,16 @@ import PreviewSuspense from "@/components/PreviewSuspense";
 
 import { groq } from "next-sanity";
 import { client } from "../../../lib/sanity.client";
-import BlogList from "@/components/BlogList";
 import PreviewBlogList from "@/components/PreviewBlogList";
+import ProjectList from "@/components/ProjectList";
 // import { Suspense } from "react";
 
 const query = groq`
-     *[_type == "post"] {
+     *[_type == "project"] {
        ...,
        author->,
-       categories[]->
-     } | order(publishedAt  desc)
+       tecnologies[]->
+     } | order(publishedAt desc)
      `;
 
 export const revalidate = 60; //revalidate this page every 60 seconds
@@ -35,11 +35,11 @@ export default async function HomePage() {
       </PreviewSuspense>
     );
   }
-  const posts = await client.fetch(query);
+  const projects = await client.fetch(query);
 
   return (
     <div>
-      <BlogList posts={posts} />
+      <ProjectList projects={projects} />
     </div>
   );
 }

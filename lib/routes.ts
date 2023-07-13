@@ -16,8 +16,8 @@ export const routes: Route[] = [
     name: "Blog",
   },
   {
-    to: "/projects",
-    path: "projects",
+    to: "/project",
+    path: "project",
     name: "Projectos",
   },
   {

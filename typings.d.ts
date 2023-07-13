@@ -16,6 +16,18 @@ interface Post extends Base {
   description: string;
   publishedAt: string;
 }
+interface Project extends Base {
+  author: Author;
+  body: Block[];
+  tecnologies: Tecnology[];
+  mainImage: Image;
+  slug: Slug;
+  title: string;
+  description: string;
+  publishedAt: string;
+  github: string;
+  liveDemo: string;
+}
 
 interface Author extends Base {
   bio: Block[];
@@ -52,6 +64,11 @@ interface Span {
 interface Category extends Base {
   description: string;
   title: string;
+}
+interface Tecnology extends Base {
+  description: string;
+  title: string;
+  mainImage: Image;
 }
 
 interface MainImage {

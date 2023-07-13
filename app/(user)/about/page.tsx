@@ -24,8 +24,12 @@ const AboutPage = async () => {
           fill
         />
       </div>
-      <PortableText value={author.bio} components={RichTextComponents} />
-      <Contact />
+      <section className="flex flex-col m-auto mt-8 prose-lg">
+        <PortableText value={author.bio} components={RichTextComponents} />
+        <div className="flex items-center justify-center">
+          <Contact />
+        </div>
+      </section>
     </div>
   );
 };
