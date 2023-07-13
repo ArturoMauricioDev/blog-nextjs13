@@ -1,5 +1,5 @@
-import Contact from "@/components/Contact";
 import ContactBanner from "@/components/ContactBanner";
+import Cta from "@/components/Cta";
 import RichTextComponents from "@/components/RichTextComponents";
 import { client } from "@/lib/sanity.client";
 import { urlForImage } from "@/sanity/lib/image";
@@ -27,7 +27,7 @@ const AboutPage = async () => {
       <section className="flex flex-col m-auto mt-8 prose-lg">
         <PortableText value={author.bio} components={RichTextComponents} />
         <div className="flex items-center justify-center">
-          <Contact />
+          <Cta href="/contact" content="Contáctame" />
         </div>
       </section>
     </div>
