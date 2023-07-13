@@ -7,7 +7,7 @@ type Props = {
   query: string;
 };
 
-export default function PreviewBlogList({ query }: Props) {
+export default function PreviewProjectList({ query }: Props) {
   const projects = usePreview(null, query);
 
   return <ProjectList projects={projects} />;

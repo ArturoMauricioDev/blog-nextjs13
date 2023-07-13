@@ -3,8 +3,8 @@ import PreviewSuspense from "@/components/PreviewSuspense";
 
 import { groq } from "next-sanity";
 import { client } from "../../../lib/sanity.client";
-import PreviewBlogList from "@/components/PreviewBlogList";
 import ProjectList from "@/components/ProjectList";
+import PreviewProjectList from "@/components/PreviewProjectList";
 // import { Suspense } from "react";
 
 const query = groq`
@@ -31,7 +31,7 @@ export default async function HomePage() {
         }
       >
         <div>Draft mode is enabled</div>
-        <PreviewBlogList query={query} />
+        <PreviewProjectList query={query} />
       </PreviewSuspense>
     );
   }

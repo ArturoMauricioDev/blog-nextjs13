@@ -10,7 +10,6 @@ type Props = {
 const ProjectList = ({ projects }: Props) => {
   return (
     <div>
-      <hr className="border-[#d8195e] mb-10 ml-10 w-16 border-2 rounded-md" />
       <div className="grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24">
         {projects.map((project) => (
           <ClientSideRoute

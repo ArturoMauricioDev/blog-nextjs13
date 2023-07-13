@@ -2,16 +2,24 @@ import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import ClientSideRoute from "./ClientSideRoute";
 import urlFor from "@/lib/urlFor";
+import Cta from "./Cta";
 
 type Props = {
   posts: Post[];
+  home?: boolean;
 };
 
-const BlogList = ({ posts }: Props) => {
+const BlogList = ({ posts, home = false }: Props) => {
+  let numberOfColumns =
+    "grid grid-cols-1 px-10 gap-5 lg:gap-7 xlg:gap-10  gap-y-16 pb-24  md:grid-cols-2";
+  if (home) {
+    numberOfColumns = numberOfColumns + " lg:grid-cols-3";
+    posts = posts.slice(0, 3);
+  }
+
   return (
     <div>
-      <hr className="border-[#d8195e] mb-10 ml-10 w-16 border-2 rounded-md" />
-      <div className="grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24">
+      <div className={numberOfColumns}>
         {/* Posts */}
         {posts.map((post) => (
           <ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
@@ -26,7 +34,7 @@ const BlogList = ({ posts }: Props) => {
                 <div className="absolute bottom-0 w-full bg-opacity-20 bg-neutral-900 backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex justify-between">
                   <div>
                     <p className="font-bold">{post.title}</p>
-                    <p className="transform-gpu subpixel-antialiased">
+                    <p className="transform-gpu subpixel-antialiased text-sm font-normal">
                       {new Date(post.publishedAt).toLocaleDateString("en-US", {
                         day: "numeric",
                         month: "long",
@@ -34,11 +42,11 @@ const BlogList = ({ posts }: Props) => {
                       })}
                     </p>
                   </div>
-                  <div className="flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center">
+                  <div className="flex justify-end flex-col  gap-y-2 md:gap-x-2 items-center">
                     {post.categories.map((category) => (
                       <div
                         key={category._id}
-                        className="bg-[#d8195e] text-center text-white px-3 py-1 rounded-full text-sm font-semibold "
+                        className="bg-[#d8195e] text-center text-white px-3 py-1 rounded-full text-sm font-normal w-full "
                       >
                         <p>{category.title}</p>
                       </div>
@@ -59,6 +67,11 @@ const BlogList = ({ posts }: Props) => {
             </div>
           </ClientSideRoute>
         ))}
+        {home && (
+          <div className="flex flex-col md:items-center lg:items-start justify-center">
+            <Cta href="/post" content="Visitar el Blog" />
+          </div>
+        )}
       </div>
     </div>
   );

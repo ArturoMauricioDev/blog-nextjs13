@@ -1,4 +1,4 @@
-import Contact from "./Contact";
+import Cta from "./Cta";
 
 const Banner = () => {
   return (
@@ -8,7 +8,7 @@ const Banner = () => {
           Hola, Soy Arturo Mauricio.
         </h1>
         <h2 className="mt-5 md:mt-0">@ArturoMauricioDev</h2>
-        <Contact />
+        <Cta href={"/contact"} content={"Contáctame"} />
       </div>
       <p className="mt-5 md:mt-2 max-w-sm text-[rgb(39,44,48)]">
         Desarrollador Full Stack | System Engineer | Web Developer | JavaScript
