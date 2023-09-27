@@ -6,7 +6,8 @@ import post from "./schemas/post";
 import author from "./schemas/author";
 import project from "./schemas/project";
 import tecnology from "./schemas/tecnology";
+import reel from "./schemas/reel";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, category, blockContent, project, tecnology],
+  types: [post, author, category, blockContent, project, tecnology, reel],
 };

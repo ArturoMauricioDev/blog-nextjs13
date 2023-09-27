@@ -80,3 +80,8 @@ interface Title {
   _type: "string";
   current: string;
 }
+
+interface Reel extends Base {
+  title: string;
+  embed: string;
+}
